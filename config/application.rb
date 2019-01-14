@@ -17,7 +17,7 @@ module Crawler
     # the framework and any gems in your application.
 
     config.generators do |g|
-      f.test_framework :rspec,
+      g.test_framework :rspec,
                        fixtures: false,
                        view_specs: false,
                        helper_specs: false,
