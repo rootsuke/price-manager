@@ -1,0 +1,15 @@
+<%= provide(:title, @user.name) %>
+
+<div class="row">
+  <div class="col-md-4">
+    <div id="user_info">
+      <h2><%= @user.name %></h2>
+      <h3><%= "登録した商品の数が表示されます" %></h3>
+      <%= link_to "編集する", edit_user_registration_path(@user) %>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <h2>登録した商品の情報が一覧表示されます</h2>
+    <p>will_paginate</p>
+  </div>
+</div>
