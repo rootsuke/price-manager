@@ -1,2 +1,15 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <%= form_tag(root_path, method: :get) do %>
+      <%= label_tag(:url, "URL") %>
+      <%= text_field_tag(:url) %>
+      <%= select :site, :name, ["amazon", :amazon], prompt: "選択してください" %>
+      <%= submit_tag("Go!") %>
+    <% end %>
+    <% if @crawl_result.present? %>
+      <h3><%= @crawl_result[:name] %></h4>
+      <h4><%= @crawl_result[:display_price] %></h4>
+      <img src="<%= @crawl_result[:image_url] %>" onload="this.height = this.height*0.4;" >
+    <% end %>
+  </div>
+</div>
