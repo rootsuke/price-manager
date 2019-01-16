@@ -23,18 +23,6 @@ textarea {
   }
 }
 
-// header
-#user-thumbnail {
-  margin-right: 15px;
-  padding: 0;
-  .user-image {
-    margin-top: 5px;
-  }
-  .fa-user {
-    margin-top: 11px;
-  }
-}
-
 // flash
 
 .alert-notice {
@@ -64,4 +52,13 @@ textarea {
   height: 300px;
   width: 100%;
   margin-bottom: 5px;
+}
+
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
 }
