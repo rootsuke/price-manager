@@ -16,10 +16,10 @@ module Crawler
 
           # name
           result[:name] = item.xpath("//span[@id=\"productTitle\"]").text.strip
-          # display_price
-          result[:display_price] = item.xpath("//span[@id=\"priceblock_ourprice\"]").text.strip
           # current_price
           result[:current_price] = item.xpath("//span[@id=\"priceblock_ourprice\"]").text.strip.delete("^0-9")
+          # display_price
+          result[:display_price] = item.xpath("//span[@id=\"priceblock_ourprice\"]").text.strip
           # image_url
           result[:image_url] = item.xpath("//img[@id=\"landingImage\"]").attribute("data-old-hires").text.strip
         end

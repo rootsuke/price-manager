@@ -3,13 +3,24 @@
     <%= form_tag(root_path, method: :get) do %>
       <%= label_tag(:url, "URL") %>
       <%= text_field_tag(:url) %>
-      <%= select :site, :name, ["amazon", :amazon], prompt: "選択してください" %>
+      <%= select :site, :name, [["amazon", :amazon], ["amazon(書籍)", :amazon_book], ["amazon(Kindle本)", :amazon_kindle]], prompt: "選択してください" %>
       <%= submit_tag("Go!") %>
     <% end %>
     <% if @crawl_result.present? %>
-      <h3><%= @crawl_result[:name] %></h4>
-      <h4><%= @crawl_result[:display_price] %></h4>
-      <img src="<%= @crawl_result[:image_url] %>" onload="this.height = this.height*0.4;" >
+    <div class="result">
+      <div class="product">
+        <h3><%= @crawl_result[:name] %></h4>
+        <h4><%= @crawl_result[:display_price] %></h4>
+        <img src="<%= @crawl_result[:image_url] %>" class="product_image" >
+      </div>
+      <%= link_to "登録する", products_path(
+                               name:          @crawl_result[:name],
+                               base_price:    @crawl_result[:current_price],
+                               current_price: @crawl_result[:current_price],
+                               display_price: @crawl_result[:display_price],
+                               image_url:     @crawl_result[:image_url]
+                               ), method: :post, class: "btn btn-primary" %>
+    </div>
     <% end %>
   </div>
 </div>
