@@ -6,6 +6,6 @@ class Product < ApplicationRecord
   validates :display_price, presence: true
 
   def calc_price_drop
-    base_price - current_price
+    current_price - base_price
   end
 end

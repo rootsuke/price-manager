@@ -11,7 +11,14 @@ module ApplicationHelper
     price_drop = product.calc_price_drop
 
     if price_drop.zero?
-      content_tag(html_tag, "価格変動なし", class: "price-not-changed")
+      # 価格下落なし
+      content_tag(html_tag, "価格変動なし")
+    elsif price_drop < 0
+      # 価格が下落
+      content_tag(html_tag, "価格下落：#{price_drop} (登録時の価格：#{product.base_price})", class: "price-down")
+    else
+      # 価格が上昇
+      content_tag(html_tag, "価格上昇：+#{price_drop} (登録時の価格：#{product.base_price})", class: "price-rised")
     end
   end
 end
