@@ -18,7 +18,7 @@
                                base_price:    @crawl_result[:current_price],
                                current_price: @crawl_result[:current_price],
                                display_price: @crawl_result[:display_price],
-                               image_url:     @crawl_result[:image_url]
+                               image_url:     @crawl_result[:image_url],
                                product_url:   params[:product_url],
                                site_type:     params[:site][:name]
                                ), method: :post, class: "btn btn-primary" %>
