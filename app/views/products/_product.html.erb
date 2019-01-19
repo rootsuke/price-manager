@@ -1,0 +1,7 @@
+<div class="product-digest">
+  <%= link_to product_path(product) do %>
+    <h4><%= product.name %></h4>
+  <% end %>
+  <p>現在価格：<%= product.display_price %></p>
+  <%= display_price_drop(product) %>
+</div>

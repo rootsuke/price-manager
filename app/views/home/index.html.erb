@@ -11,7 +11,7 @@
       <div class="product">
         <h3><%= @crawl_result[:name] %></h4>
         <h4><%= @crawl_result[:display_price] %></h4>
-        <img src="<%= @crawl_result[:image_url] %>" class="product_image" >
+        <img src="<%= @crawl_result[:image_url] %>" class="product-image" >
       </div>
       <%= link_to "登録する", products_path(
                                name:          @crawl_result[:name],

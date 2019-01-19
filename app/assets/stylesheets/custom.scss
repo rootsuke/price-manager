@@ -63,8 +63,14 @@ textarea {
 }
 
 // product
-.product_image {
+.product-image {
   width: 100%;
+}
+
+// product-digest
+.product-digest {
+  margin-top: 20px;
+  border-top: 1px solid $gray-lighter;
 }
 
 /* miscellaneous */
