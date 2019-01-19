@@ -5,11 +5,11 @@
     <div id="user_info">
       <h2><%= @user.name %></h2>
       <h3>登録している商品数：<%= @user.products.count %>件</h3>
-      <%= link_to "編集する", edit_user_registration_path(@user) %>
+      <%= link_to "ユーザー情報を編集する", edit_user_registration_path(@user) %>
     </div>
   </div>
   <div class="col-md-8">
-    <h2>登録した商品の情報が一覧表示されます</h2>
+    <h2>登録した商品一覧</h2>
     <%= render @products %>
     <%= will_paginate @products %>
   </div>
