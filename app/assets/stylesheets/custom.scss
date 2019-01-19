@@ -63,6 +63,10 @@ textarea {
 }
 
 // product
+.product {
+  margin-bottom: 20px;
+}
+
 .product-image {
   width: 100%;
 }
@@ -71,6 +75,15 @@ textarea {
 .product-digest {
   margin-top: 20px;
   border-top: 1px solid $gray-lighter;
+}
+
+// price-drop
+.price-down {
+  color: blue;
+}
+
+.price-rised {
+  color: red;
 }
 
 /* miscellaneous */

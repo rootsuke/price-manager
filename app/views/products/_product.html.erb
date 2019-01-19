@@ -4,4 +4,5 @@
   <% end %>
   <p>現在価格：<%= product.display_price %></p>
   <%= display_price_drop(product) %>
+  <%= link_to "商品ページにアクセスする(#{product.site_type})", product.product_url %>
 </div>

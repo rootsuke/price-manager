@@ -21,6 +21,19 @@ class ProductsController < ApplicationController
     end
   end
 
+  def update
+    @product = Product.find(params[:id])
+    crawler = Crawler::CrawlerService.new(product_url: @product.product_url, site_type: @product.site_type)
+    params = crawler.update_product_price
+    if @product.update_attributes(params)
+      flash[:success] = "商品価格を更新しました"
+      redirect_to product_path(@product)
+    else
+      flash[:danger] = "商品価格の更新に失敗しました"
+      redirect_to product_path(@product)
+    end
+  end
+
   def destroy
     @product.destroy
     flash[:success] = "商品を削除しました"
@@ -30,7 +43,7 @@ class ProductsController < ApplicationController
   private
 
     def product_params
-      params.permit(:name, :base_price, :current_price, :display_price, :image_url)
+      params.permit(:name, :base_price, :current_price, :display_price, :image_url, :product_url, :site_type)
     end
 
     def correct_user
