@@ -34,5 +34,19 @@ module Crawler
         result
       end
 
+      def crawl_on_amazon_book(item, result)
+        # name
+        result[:name] = item.xpath("//span[@id=\"productTitle\"]").text.strip
+        # display_price
+        # 価格取得ロジックが不完全
+        # 価格が取得できずnilになることがある
+        # APIを利用しなければ正確な価格の取得は難しい
+        result[:display_price] = item.xpath("//span[@class=\"a-color-price\"]").text.match(%r{¥{1}[\d,]+}).to_s
+        # current_price
+        result[:current_price] = result[:display_price].delete("^0-9")
+        # image_url
+        result[:image_url] = item.xpath("//img[@id=\"imgBlkFront\"]").attribute("data-a-dynamic-image").text.strip.match(%r{http.+?jpg})
+        result
+      end
   end
 end

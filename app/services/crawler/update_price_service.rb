@@ -46,5 +46,16 @@ module Crawler
         result
       end
 
+      def crawling_price_on_amazon_book(item, result)
+        # display_price
+        # 価格取得ロジックが不完全
+        # 価格が取得できずnilになることがある
+        # APIを利用しなければ正確な価格の取得は難しい
+        result[:display_price] = item.xpath("//span[@class=\"a-color-price\"]").text.match(%r{¥{1}[\d,]+}).to_s
+        # current_price
+        result[:current_price] = result[:display_price].delete("^0-9")
+        result
+      end
+
   end
 end
