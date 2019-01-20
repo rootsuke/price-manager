@@ -7,7 +7,9 @@
       <h4><%= @product[:display_price] %></h4>
       <%= display_price_drop(@product, html_tag: :h4) %>
       <%= link_to "商品ページにアクセスする(#{@product.site_type})", @product.product_url %>
-      <img src="<%= @product[:image_url] %>" class="product-image" >
+      <div>
+        <img src="<%= @product[:image_url] %>" class="product-image" >
+      </div>
     </div>
     <%= link_to "商品価格を更新する", product_path(@product), method: :patch, class: "btn btn-success" %>
     <%= link_to "削除する", product_path(@product), method: :delete, class: "btn btn-danger", data: { confirm: "削除してよろしいですか？"} %>
