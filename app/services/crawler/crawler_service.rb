@@ -63,5 +63,30 @@ module Crawler
         result[:image_url] = item.xpath("//div[@id=\"photoMain\"]/img").attribute("src").text.strip
         result
       end
+
+      def crawl_on_wiggle(item, result)
+        # name
+        result[:name] = item.xpath("//h1[@id='productTitle']").text.strip
+        # display_price
+        result[:display_price] = item.xpath("//div[@class='bem-pricing']/p").text.strip
+        # current_price
+        result[:current_price] = result[:display_price].delete("^0-9")
+        # image_url
+        result[:image_url] = item.xpath("//img[@id='pdpGalleryImage']").attribute("src").text.strip
+        result
+      end
+
+      def crawl_on_bellati(item, result)
+        # name
+        result[:name] = item.xpath("//div[@class='title']/h1").text.strip
+        # display_price
+        result[:display_price] = item.xpath("//span[@class='tr yprice']").text.strip
+        # current_price
+        result[:current_price] = result[:display_price].delete("^0-9")
+        # image_url
+        image_url = item.xpath("//div[@id='prodimg']/img").attribute("src").text.strip
+        result[:image_url] = "https://www.bellatisport.com#{image_url}"
+        result
+      end
   end
 end
