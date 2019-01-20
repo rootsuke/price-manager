@@ -3,7 +3,7 @@
     <%= form_tag(root_path, method: :get) do %>
       <%= label_tag(:product_url, "URL") %>
       <%= text_field_tag(:product_url) %>
-      <%= select :site, :name, [["amazon", :amazon], ["amazon(書籍)", :amazon_book], ["amazon(Kindle本)", :amazon_kindle]], prompt: "選択してください" %>
+      <%= select :site, :name, [["amazon(本以外)", :amazon], ["amazon本(Kindle本は不可)", :amazon_book]], prompt: "選択してください" %>
       <%= submit_tag("Go!") %>
     <% end %>
     <% if @crawl_result.present? %>
