@@ -64,7 +64,7 @@ module Crawler
           result[:display_price] = item.xpath("//div[@id='isLaterPay']/div/div[@class='goods-price discount-price']").text.strip
         end
         # current_price
-        result[:current_price] = result[:display_price].delete("^0-9")
+        result[:current_price] = result[:display_price].delete("^0-9", "^\.")
         result
       end
 
@@ -72,7 +72,7 @@ module Crawler
         # display_price
         result[:display_price] = item.xpath("//span[@class='tr yprice']").text.strip
         # current_price
-        result[:current_price] = result[:display_price].delete("^0-9")
+        result[:current_price] = result[:display_price].delete("^0-9", "^\.")
         result
       end
 

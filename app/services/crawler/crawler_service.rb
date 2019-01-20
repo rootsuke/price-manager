@@ -70,7 +70,7 @@ module Crawler
         # display_price
         result[:display_price] = item.xpath("//div[@class='bem-pricing']/p").text.strip
         # current_price
-        result[:current_price] = result[:display_price].delete("^0-9")
+        result[:current_price] = result[:display_price].delete("^0-9", "^\.")
         # image_url
         result[:image_url] = item.xpath("//img[@id='pdpGalleryImage']").attribute("src").text.strip
         result
@@ -82,7 +82,7 @@ module Crawler
         # display_price
         result[:display_price] = item.xpath("//span[@class='tr yprice']").text.strip
         # current_price
-        result[:current_price] = result[:display_price].delete("^0-9")
+        result[:current_price] = result[:display_price].delete("^0-9", "^\.")
         # image_url
         image_url = item.xpath("//div[@id='prodimg']/img").attribute("src").text.strip
         result[:image_url] = "https://www.bellatisport.com#{image_url}"
