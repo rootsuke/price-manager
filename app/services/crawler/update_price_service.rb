@@ -57,5 +57,16 @@ module Crawler
         result
       end
 
+      def crawling_price_on_zozo(item, result)
+        # display_price
+        result[:display_price] = item.xpath("//div[@id='isLaterPay']/div/div[@class='goods-price']").text.strip
+        if result[:display_price].blank?
+          result[:display_price] = item.xpath("//div[@id='isLaterPay']/div/div[@class='goods-price discount-price']").text.strip
+        end
+        # current_price
+        result[:current_price] = result[:display_price].delete("^0-9")
+        result
+      end
+
   end
 end

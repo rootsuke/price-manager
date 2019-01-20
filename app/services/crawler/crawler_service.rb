@@ -48,5 +48,20 @@ module Crawler
         result[:image_url] = item.xpath("//img[@id=\"imgBlkFront\"]").attribute("data-a-dynamic-image").text.strip.match(%r{http.+?jpg})
         result
       end
+
+      def crawl_on_zozo(item, result)
+        # name
+        result[:name] = item.xpath("//div[@id=\"item-intro\"]/h1").text.strip
+        # display_price
+        result[:display_price] = item.xpath("//div[@id='isLaterPay']/div/div[@class='goods-price']").text.strip
+        if result[:display_price].blank?
+          result[:display_price] = item.xpath("//div[@id='isLaterPay']/div/div[@class='goods-price discount-price']").text.strip
+        end
+        # current_price
+        result[:current_price] = result[:display_price].delete("^0-9")
+        # image_url
+        result[:image_url] = item.xpath("//div[@id=\"photoMain\"]/img").attribute("src").text.strip
+        result
+      end
   end
 end
