@@ -1,9 +1,12 @@
 FactoryBot.define do
   factory :product do
-    name { "MyString" }
-    base_price { 1 }
-    current_price { 1 }
-    display_price { "MyString" }
-    user { nil }
+    sequence(:name) { |n| "product#{n}"}
+    base_price { 9999 }
+    current_price { 9000 }
+    display_price { "¥9,000" }
+    product_url { "#" }
+    image_url { "#" }
+    site_type { "amazon" }
+    user
   end
 end
