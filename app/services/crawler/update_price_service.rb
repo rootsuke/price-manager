@@ -68,6 +68,14 @@ module Crawler
         result
       end
 
+      def crawling_price_on_wiggle(item, result)
+        # display_price
+        result[:display_price] = item.xpath("//div[@class='bem-pricing']/p").text.strip
+        # current_price
+        result[:current_price] = result[:display_price].delete("^0-9", "^\.")
+        result
+      end
+
       def crawling_price_on_bellati(item, result)
         # display_price
         result[:display_price] = item.xpath("//span[@class='tr yprice']").text.strip
