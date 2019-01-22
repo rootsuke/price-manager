@@ -4,7 +4,9 @@
   <div class="col-md-4">
     <div id="user_info">
       <h2><%= @user.name %></h2>
-      <h3>登録している商品数：<%= @user.products.count %>件</h3>
+      <div id="products_count">
+        <h3>登録している商品数：<%= @user.products.count %>件</h3>
+      </div>
       <%= link_to "ユーザー情報を編集する", edit_user_registration_path(@user) %>
     </div>
   </div>
