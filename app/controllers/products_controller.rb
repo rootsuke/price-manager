@@ -40,6 +40,22 @@ class ProductsController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  def update_all
+    products = current_user.products.all
+    products.each do |product|
+      crawler = Crawler::UpdatePriceService.new(product_url: product.product_url, site_type: product.site_type)
+      prices = crawler.update_product_price
+      product.update_attributes(prices)
+      unless product.save
+        flash[:danger] = "価格の更新に失敗しました"
+        redirect_to user_path(current_user)
+        return
+      end
+    end
+    flash[:success] = "価格を更新しました"
+    redirect_to user_path(current_user)
+  end
+
   private
 
     def product_params
