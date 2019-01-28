@@ -22,7 +22,7 @@ RSpec.feature "Posts", type: :feature do
       scenario "cannot see the delete link" do
         login_as(other_user, scope: :user)
         visit product_path(user_product.id)
-        expect(page).not_to have_selector "a", text: "削除"
+        expect(page).not_to have_selector "a", text: "削除する"
       end
     end
   end
