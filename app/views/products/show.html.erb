@@ -1,19 +1,23 @@
 <%= provide(:title, @product.name) %>
 
-<div class="row">
-  <div class="col-md-8 col-md-offset-2">
-    <div class="product">
-      <h3><%= @product.name%></h4>
-      <h4><%= @product.display_price %></h4>
-      <%= display_price_drop(@product, html_tag: :h4) %>
-      <%= link_to "商品ページにアクセスする(#{@product.site_type})", @product.product_url %>
-      <div>
-        <img src="<%= @product[:image_url] %>" class="product-image" >
+<div class="container container-white">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="product">
+        <h3><%= @product.name%></h4>
+        <h4><%= @product.display_price %></h4>
+        <%= display_price_drop(@product, html_tag: :h4) %>
+        <%= link_to "商品ページにアクセスする(#{@product.site_type})", @product.product_url %>
+        <div id="product_image_area">
+          <%= image_tag @product.image_url, class: "product-image" %>
+        </div>
+        <% if current_user.id == @product.user.id %>
+          <div id="product_btn_area">
+            <%= link_to "商品価格を更新する", product_path(@product), method: :patch, class: "btn btn-success" %>
+            <%= link_to "削除する", product_path(@product), method: :delete, class: "btn btn-danger", data: { confirm: "削除してよろしいですか？"} %>
+          </div>
+        <% end %>
       </div>
     </div>
-    <% if current_user.id == @product.user.id %>
-      <%= link_to "商品価格を更新する", product_path(@product), method: :patch, class: "btn btn-success" %>
-      <%= link_to "削除する", product_path(@product), method: :delete, class: "btn btn-danger", data: { confirm: "削除してよろしいですか？"} %>
-    <% end %>
   </div>
 </div>

@@ -1,28 +1,36 @@
-<div class="row">
-  <div class="col-md-8 col-md-offset-2">
-    <%= form_tag(root_path, method: :get) do %>
-      <%= label_tag(:product_url, "URL") %>
-      <%= text_field_tag(:product_url) %>
-      <%= select :site, :name, [["amazon(本以外)", :amazon], ["amazon本(Kindle本は不可)", :amazon_book], ["zozo", :zozo], ["wiggle", :wiggle], ["bellati", :bellati]], prompt: "選択してください" %>
-      <%= submit_tag("Go!") %>
-    <% end %>
-    <% if @crawl_result.present? %>
-    <div class="result">
-      <div class="product">
-        <h3><%= @crawl_result[:name] %></h4>
-        <h4><%= @crawl_result[:display_price] %></h4>
-        <img src="<%= @crawl_result[:image_url] %>" class="product-image" >
+<div class="container container-white">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div id="product_url_form">
+        <%= form_tag(root_path, method: :get) do %>
+          <div class="url-form">
+            <%= text_field_tag(:product_url, nil, placeholder: "商品URLを入力") %>
+          </div>
+          <div class="site-list">
+            <%= select :site, :name, [["Amazon(本除く)", :amazon], ["Amazon本(Kindle本除く)", :amazon_book], ["ZOZO TOWN", :zozo], ["Wiggle", :wiggle], ["Bellati Sport", :bellati]], prompt: "サイトを選択" %>
+          </div>
+          <%= submit_tag("Go!", class: "btn btn-success")%>
+        <% end %>
       </div>
-      <%= link_to "登録する", products_path(
-                               name:          @crawl_result[:name],
-                               base_price:    @crawl_result[:current_price],
-                               current_price: @crawl_result[:current_price],
-                               display_price: @crawl_result[:display_price],
-                               image_url:     @crawl_result[:image_url],
-                               product_url:   params[:product_url],
-                               site_type:     params[:site][:name]
-                               ), method: :post, class: "btn btn-primary" %>
+    
+      <% if @crawl_result.present? %>
+      <div class="result">
+        <div class="product">
+          <h3><%= @crawl_result[:name] %></h4>
+          <h4><%= @crawl_result[:display_price] %></h4>
+          <img src="<%= @crawl_result[:image_url] %>" class="product-image" >
+        </div>
+        <%= link_to "登録する", products_path(
+                                name:          @crawl_result[:name],
+                                base_price:    @crawl_result[:current_price],
+                                current_price: @crawl_result[:current_price],
+                                display_price: @crawl_result[:display_price],
+                                image_url:     @crawl_result[:image_url],
+                                product_url:   params[:product_url],
+                                site_type:     params[:site][:name]
+                                ), method: :post, class: "btn btn-primary" %>
+      </div>
+      <% end %>
     </div>
-    <% end %>
   </div>
 </div>
