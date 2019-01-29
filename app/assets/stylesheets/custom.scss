@@ -9,6 +9,7 @@ $green-dark:    #0d5c0d;
 
 body {
   padding-top: 50px;
+  font-family: 'Mv Boli',sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -40,7 +41,13 @@ a, a > h4 {
   background-color: white;
 }
 
-.title {
+.top-wrapper {
+  padding-bottom: 40px;
+  text-align: center;
+}
+
+.page_title {
+  margin-top: 20px;
   padding-bottom: 15px;
 }
 
@@ -52,8 +59,12 @@ a, a > h4 {
 }
 
 // flash
+.alert-success {
+  @include alert-variant($green-lighter, $green-lighter, $green-dark);
+}
+
 .alert-notice {
-  @include alert-variant($alert-success-bg, $alert-success-border, $alert-success-text);
+  @include alert-variant($green-lighter, $green-lighter, $green-dark);
 }
 
 .alert-alert {
@@ -69,39 +80,64 @@ a, a > h4 {
   }
 }
 
-// forms
-input {
-  margin-bottom: 10px;
+// top_page
+#site_logo_area {
+  width: 100%;
+  margin-top: 20px;
+  text-align: center;
+  img {
+    width: 90%;
+  }
 }
 
+#link_to_help_page {
+  color: red;
+  h4 {
+    color: red;
+  }
+}
+
+// forms
 .url-form {
-  margin-top: 50px;
+  margin-top: 40px;
+  width: 100%;
+  input {
+    width: 80%;
+    height: 30px;
+  }
+  p {
+    font-size: 20px;
+  }
 }
 
 .site-list {
-  margin: 30px 0;
+  margin: 20px 0;
+  p {
+    font-size: 20px;
+  }
 }
 
 // crawl result
 .result {
   margin-top: 30px;
-  .btn {
-    width: 100%;
-  }
 }
 
 // user
 #user_info {
   padding: 10px;
+  text-align: center;
+  #products_count {
+    margin-top: 30px;
+  }
+  #link_to_edit_page {
+    margin-top: 30px;
+  }
 }
 
-#edit_profile_link {
-  margin-top: 20px;
-}
 
 // product
 .product {
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   #product_btn_area {
     margin-top: 20px;
   }
