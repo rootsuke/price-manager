@@ -11,12 +11,12 @@
         <div id="product_url_form">
           <%= form_tag(root_path, method: :get) do %>
             <div class="url-form">
-              <p>1.商品ページのURLを入力</p>
+              <p>商品ページのURLを入力</p>
               <%= text_field_tag(:product_url, nil, placeholder: "URLを入力") %>
             </div>
             <div class="site-list">
-              <p>2.商品サイトを選択</p>
-              <%= select :site, :name, [["Amazon(本除く)", :amazon], ["Amazon本(Kindle本除く)", :amazon_book], ["ZOZO TOWN", :zozo], ["Wiggle", :wiggle], ["Bellati Sport", :bellati]], prompt: "サイトを選択" %>
+              <p>商品サイトを選択</p>
+              <%= select :site, :name, [["Amazon(本除く)", :amazon], ["Amazon本(Kindle本除く)", :amazon_book], ["Wiggle", :wiggle], ["Bellati Sport", :bellati]], prompt: "サイトを選択" %>
             </div>
             <%= submit_tag("商品情報を取得する", class: "btn btn-success")%>
           <% end %>
