@@ -5,4 +5,7 @@ class HomeController < ApplicationController
       @crawl_result = crawler.crawl
     end
   end
+
+  def help
+  end
 end
