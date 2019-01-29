@@ -32,6 +32,10 @@ a, a > h4 {
   color: white;
 }
 
+.nav-tabs {
+  margin-top: 20px;
+}
+
 .all-container {
   background-color: $green-lighter;
   padding: 10px;
@@ -97,6 +101,44 @@ a, a > h4 {
   }
 }
 
+// help page
+#how_to_use {
+  div {
+    padding-bottom: 20px;
+    border-bottom: 1px solid $green-light;
+  }
+  img {
+    width: 100%;
+  }
+  #how_to_use_1 {
+    margin-top: 10px;
+  }
+  #how_to_use_2_3 {
+    margin-top: 20px;
+  }
+}
+
+#update_price {
+  img {
+    width: 100%;
+  }
+}
+
+#notes {
+  h2 {
+    margin-bottom: 15px;
+    color: red;
+    text-align: center;
+  }
+  .note {
+    margin-bottom: 35px;
+  }
+  p {
+    font-size: 16px;
+  }
+}
+
+
 // forms
 .url-form {
   margin-top: 40px;
@@ -149,7 +191,6 @@ a, a > h4 {
 
 // product-digest
 .product-digest {
-  // margin-top: 20px;
   padding: 10px;
   border-bottom: 1px solid $green-light;
 }
