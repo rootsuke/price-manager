@@ -24,6 +24,8 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 # boot-strap
 gem 'bootstrap-sass', '3.3.7'
+# jquery
+gem 'jquery-rails', '4.3.1'
 
 gem 'font-awesome-rails'
 gem 'devise'
