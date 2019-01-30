@@ -12,7 +12,7 @@ body {
   font-family: 'Cambria',sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6, p {
+h1, h2, h3, h4, h5, h6, p, label {
   color: #5f5f5f;
 }
 
@@ -38,11 +38,12 @@ a, a > h4 {
 
 .all-container {
   background-color: $green-lighter;
-  padding: 10px;
+  padding: 20px;
 }
 
 .container-white {
   background-color: white;
+  padding: 25px 0;
 }
 
 .top-wrapper {
@@ -140,6 +141,19 @@ a, a > h4 {
 
 
 // forms
+.forms {
+  text-align: center;
+  input {
+    width: 80%;
+  }
+  #user_remember_me {
+    width: 12px;
+  }
+  .field {
+    margin-bottom: 15px;
+  }
+}
+
 .url-form {
   margin-top: 40px;
   width: 100%;
@@ -157,6 +171,15 @@ a, a > h4 {
   p {
     font-size: 20px;
   }
+}
+
+#cancel {
+  margin-top: 50px;
+  color: red;
+}
+
+.actions {
+  margin: 10px 0;
 }
 
 // crawl result
