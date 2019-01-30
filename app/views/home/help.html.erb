@@ -1,74 +1,74 @@
 <div class="page-title">
   <h1>使い方</h1>
-  <div class="container-white">
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <h2>PriceManagerは気になる商品の価格ウォッチリスト作成サービスです</h2>
-        <h3>あなたのお買い物に是非お役立てください</h3>
-        <p>※現在対応サイト：Amazon、Wiggle(スポーツ用品通販)、BellatiSport(ロードバイク通販)</p>
-        <p>(その他のサイトも順次対応予定)</p>
-      <!-- タブ・メニュー -->
-        <ul class="nav nav-tabs">
-          <li class="nav-item active"><a href="#how_to_use" data-toggle="tab" class="nav-link">商品の登録</a></li>
-          <li class="nav-item"><a href="#update_price" data-toggle="tab" class="nav-link">価格の更新</a></li>
-          <li class="nav-item"><a href="#notes" data-toggle="tab" class="nav-link">利用上の注意</a></li>
-        </ul>
+</div>
+<div class="container-white">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h2>PriceManagerは気になる商品の価格ウォッチリスト作成サービスです</h2>
+      <h3>あなたのお買い物に是非お役立てください</h3>
+      <p>※現在対応サイト：Amazon、Wiggle(スポーツ用品通販)、BellatiSport(ロードバイク通販)</p>
+      <p>(その他のサイトも順次対応予定)</p>
+    <!-- タブ・メニュー -->
+      <ul class="nav nav-tabs">
+        <li class="nav-item active"><a href="#how_to_use" data-toggle="tab" class="nav-link">商品の登録</a></li>
+        <li class="nav-item"><a href="#update_price" data-toggle="tab" class="nav-link">価格の更新</a></li>
+        <li class="nav-item"><a href="#notes" data-toggle="tab" class="nav-link">利用上の注意</a></li>
+      </ul>
 
-        <!-- タブ内容 -->
-        <div class="tab-content">
-          <div class="tab-pane active" id="how_to_use">
-            <div id="how_to_use_1">
-              <p>※Amazonの商品での例</p>
-              <h3>1.商品ページのURLをコピーする</h3>
-              <%= image_tag "amazon.png", alt: "how_to_use_for_amazon" %>
-            </div>
-            <div id="how_to_use_2_3_4">
-              <h3>2.フォームにURLを貼り付ける</h3>
-              <h3>3.商品サイトを選択</h3>
-              <h3>4.ボタンをクリック</h3>
-              <%= image_tag "fill_in_forms.png", alt: "fill_in_forms" %>
-            </div>
-            <div id="how_to_use_5">
-              <h3>5.商品情報が表示されるので、ボタンをクリックしてリストに追加</h3>
-              <%= image_tag "result.png", alt: "result" %>
-            </div>
-            <div id="how_to_use_6">
-              <h3>6.商品情報がリストに追加される</h3>
-              <%= image_tag "product_page.png", alt: "product_page" %>
-            </div>
+      <!-- タブ内容 -->
+      <div class="tab-content">
+        <div class="tab-pane active" id="how_to_use">
+          <div id="how_to_use_1">
+            <p>※Amazonの商品での例</p>
+            <h3>1.商品ページのURLをコピーする</h3>
+            <%= image_tag "amazon.png", alt: "how_to_use_for_amazon" %>
           </div>
-          <div class="tab-pane fade" id="update_price">
-            <div id="update_1">
-              <h3>1.ボタンをクリックすると商品価格を更新します</h3>
-              <%= image_tag "before_update.png", alt: "before_update" %>
-            </div>
-            <div id="update_2_3">
-              <h3>2.商品情報の取得に成功すると、価格が更新されます</h3>
-              <h3>3.登録時の価格から変動していれば、その価格差が表示</h3>
-              <%= image_tag "after_update.png", alt: "after_update" %>
-            </div>
+          <div id="how_to_use_2_3_4">
+            <h3>2.フォームにURLを貼り付ける</h3>
+            <h3>3.商品サイトを選択</h3>
+            <h3>4.ボタンをクリック</h3>
+            <%= image_tag "fill_in_forms.png", alt: "fill_in_forms" %>
+          </div>
+          <div id="how_to_use_5">
+            <h3>5.商品情報が表示されるので、ボタンをクリックしてリストに追加</h3>
+            <%= image_tag "result.png", alt: "result" %>
+          </div>
+          <div id="how_to_use_6">
+            <h3>6.商品情報がリストに追加される</h3>
+            <%= image_tag "product_page.png", alt: "product_page" %>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="update_price">
+          <div id="update_1">
+            <h3>1.ボタンをクリックすると商品価格を更新します</h3>
+            <%= image_tag "before_update.png", alt: "before_update" %>
+          </div>
+          <div id="update_2_3">
+            <h3>2.商品情報の取得に成功すると、価格が更新されます</h3>
+            <h3>3.登録時の価格から変動していれば、その価格差が表示</h3>
+            <%= image_tag "after_update.png", alt: "after_update" %>
+          </div>
 
+        </div>
+        <div class="tab-pane fade" id="notes">
+          <h2>※注意事項</h2>
+          <div class="note">
+            <p>・「すべての商品価格を更新する」により、登録した全商品の価格を一度に更新できます。</p>
+            <p>ただし、商品数が多い場合、この処理は非常に時間がかかり、商品サイトへの負荷がかかることも考えられます。</p>
+            <p>できる限り、価格を更新したい商品ページから個別に更新するようお願いいたします。</p>
           </div>
-          <div class="tab-pane fade" id="notes">
-            <h2>※注意事項</h2>
-            <div class="note">
-              <p>・「すべての商品価格を更新する」により、登録した全商品の価格を一度に更新できます。</p>
-              <p>ただし、商品数が多い場合、この処理は非常に時間がかかり、商品サイトへの負荷がかかることも考えられます。</p>
-              <p>できる限り、価格を更新したい商品ページから個別に更新するようお願いいたします。</p>
-            </div>
-            <div class="note">
-              <p>・商品サイトへの負荷を避けるために、同じ商品の価格を連続で更新することはお控えください。</p>
-            </div>
-            <div class="note">
-              <p>・商品サイトの構成が変わると、商品情報が正確に取得できない場合がございます。</p>
-              <p>こうした不具合については確認次第対応いたします。</p>
-            </div>
-            <div class="note">
-              <p>・実際の商品サイトと、ドロップダウンリストから選択したサイトが一致しない場合、商品情報が取得できませんのでご注意ください。</p>
-            </div>
-            <div class="note">
-              <p>・AmazonのKindle本については未対応になります。</p>
-            </div>
+          <div class="note">
+            <p>・商品サイトへの負荷を避けるために、同じ商品の価格を連続で更新することはお控えください。</p>
+          </div>
+          <div class="note">
+            <p>・商品サイトの構成が変わると、商品情報が正確に取得できない場合がございます。</p>
+            <p>こうした不具合については確認次第対応いたします。</p>
+          </div>
+          <div class="note">
+            <p>・実際の商品サイトと、ドロップダウンリストから選択したサイトが一致しない場合、商品情報が取得できませんのでご注意ください。</p>
+          </div>
+          <div class="note">
+            <p>・AmazonのKindle本については未対応になります。</p>
           </div>
         </div>
       </div>
