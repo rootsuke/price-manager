@@ -29,6 +29,8 @@ gem 'jquery-rails', '4.3.1'
 
 gem 'font-awesome-rails'
 gem 'devise'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
 gem 'will_paginate', '3.1.6'
 gem 'bootstrap-will_paginate', '1.0.0'
 # crawler
