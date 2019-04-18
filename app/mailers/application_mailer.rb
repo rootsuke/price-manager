@@ -1,4 +1,6 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com'
+  add_template_helper(ApplicationHelper)
+
+  default from: 'noreply@price-manager.herokuapp.com'
   layout 'mailer'
 end

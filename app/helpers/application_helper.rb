@@ -21,4 +21,19 @@ module ApplicationHelper
       content_tag(html_tag, "価格上昇：+#{price_drop} (登録時の価格：#{product.base_price})", class: "price-rised")
     end
   end
+
+  def display_price_drop_by_text(product)
+    price_drop = product.calc_price_drop
+
+    if price_drop.zero?
+      # 価格下落なし
+      "価格変動なし"
+    elsif price_drop < 0
+      # 価格が下落
+      "価格下落：#{price_drop} (登録時の価格：#{product.base_price})"
+    else
+      # 価格が上昇
+      "価格上昇：+#{price_drop} (登録時の価格：#{product.base_price})"
+    end
+  end
 end

@@ -1,5 +1,12 @@
-<h1>User#notify_price</h1>
+<h2>Price Managerより、<%= @user.name %>様が登録されている商品の価格のお知らせです。</h2>
 
-<p>
-  <%= @greeting %>, find me in app/views/user_mailer/notify_price.html.erb
-</p>
+<% @products.each do |product| %>
+  <div class="product-digest">
+    <%= link_to product_url(product) do %>
+      <h4><%= product.name %></h4>
+    <% end %>
+    <p>現在価格：<%= product.display_price %></p>
+    <%= display_price_drop(product) %>
+    <%= link_to "商品ページにアクセスする(#{product.site_type})", product.product_url %>
+  </div>
+<% end %>

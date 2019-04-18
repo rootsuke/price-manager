@@ -5,9 +5,9 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.notify_price.subject
   #
-  def notify_price
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+  def notify_price(user)
+    @user = user
+    @products = user.products
+    mail to: user.email, subject: "登録されている商品の価格のお知らせ"
   end
 end

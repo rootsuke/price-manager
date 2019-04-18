@@ -4,9 +4,11 @@ task :test_task => :environment do
 end
 
 task :update_all => :environment do
+  puts "start updating price."
   users = User.all
   users.each do |user|
     user.update_all_product
+    UserMailer.notify_price(user).deliver_now
   end
-  puts "done updating price."
+  puts "finish updating price."
 end
