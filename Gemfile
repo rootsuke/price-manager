@@ -39,6 +39,11 @@ gem 'bootstrap-will_paginate', '1.0.0'
 gem 'anemone'
 gem 'nokogiri'
 
+# active job
+gem 'redis'
+gem 'sidekiq'
+gem 'sinatra', require: false
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
