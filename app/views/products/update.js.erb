@@ -1,0 +1,4 @@
+$('#loading_price').remove();
+$('#product_price').html('<%= @product.display_price %>');
+$('#price_drop').html('<%= display_price_drop(@product, html_tag: :h4) %>');
+alert("商品価格を更新しました");

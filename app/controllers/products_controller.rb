@@ -25,12 +25,17 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     crawler = Crawler::UpdatePriceService.new(product_url: @product.product_url, site_type: @product.site_type)
     prices = crawler.update_product_price
-    if @product.update_attributes(prices)
-      flash[:success] = "商品価格を更新しました"
-      redirect_to product_path(@product)
-    else
-      flash[:danger] = "商品価格の更新に失敗しました"
-      redirect_to product_path(@product)
+    unless @product.update_attributes(prices)
+      flash.now[:danger] = "商品価格の更新に失敗しました"
+      return
+      render "show"
+    end
+    respond_to do |format|
+      format.html {
+        flash[:success] = "商品価格を更新しました"
+        redirect_to @product
+      }
+      format.js
     end
   end
 
