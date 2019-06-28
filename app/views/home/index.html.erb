@@ -9,7 +9,7 @@
           <h4>※初めての方はこちらから使い方をお読みください</h3>
         <% end %>
         <div id="product_url_form">
-          <%= form_tag(root_path, method: :get) do %>
+          <%= form_tag(home_crawl_path, method: :get, remote: true) do %>
             <div class="url-form">
               <p>商品ページのURLを入力</p>
               <%= text_field_tag(:product_url, nil, placeholder: "URLを入力") %>
@@ -18,28 +18,12 @@
               <p>商品サイトを選択</p>
               <%= select :site, :name, [["Amazon(本除く)", :amazon], ["Amazon本(Kindle本除く)", :amazon_book], ["Wiggle", :wiggle], ["Bellati Sport", :bellati]], prompt: "サイトを選択" %>
             </div>
-            <%= submit_tag("商品情報を取得する", class: "btn btn-success")%>
+            <input type="submit" value="商品情報を取得する" class="btn btn-success" data-behavior=crawl_btn>
           <% end %>
         </div>
-      
-        <% if @crawl_result.present? %>
-        <div class="result">
-          <div class="product">
-            <h3><%= @crawl_result[:name] %></h4>
-            <h4><%= @crawl_result[:display_price] %></h4>
-            <%= image_tag @crawl_result[:image_url], class: "product-image" %>
-          </div>
-          <%= link_to "商品をリストに登録する", products_path(
-                                  name:          @crawl_result[:name],
-                                  base_price:    @crawl_result[:current_price],
-                                  current_price: @crawl_result[:current_price],
-                                  display_price: @crawl_result[:display_price],
-                                  image_url:     @crawl_result[:image_url],
-                                  product_url:   params[:product_url],
-                                  site_type:     params[:site][:name]
-                                  ), method: :post, class: "btn btn-success" %>
+
+        <div id="crawl_result">
         </div>
-        <% end %>
       </div>
     </div>
   </div>
