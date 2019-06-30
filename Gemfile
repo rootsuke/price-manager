@@ -43,6 +43,8 @@ gem 'nokogiri'
 gem 'redis'
 gem 'sidekiq'
 gem 'sinatra', require: false
+gem 'lograge'
+gem 'lograge_activejob'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
