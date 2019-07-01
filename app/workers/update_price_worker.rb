@@ -1,7 +1,7 @@
 class UpdatePriceWorker
   include Sidekiq::Worker
 
-  def perform(user_id)
+  def perform(user_id, mailer = false)
     user = User.find(user_id)
     products = user.products.all
     return if products.empty?
@@ -11,6 +11,6 @@ class UpdatePriceWorker
       product.update_attributes(prices)
       next unless product.save
     end
-    UserMailer.notify_price(user).deliver_now
+    UserMailer.notify_price(user).deliver_now if mailer
   end
 end

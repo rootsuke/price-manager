@@ -7,7 +7,7 @@ task :update_all => :environment do
   puts "start updating price."
   users = User.all
   users.each do |user|
-    UpdatePriceWorker.perform_async(user.id)
+    UpdatePriceWorker.perform_async(user.id, mailer: true)
   end
   puts "finish updating price."
 end
