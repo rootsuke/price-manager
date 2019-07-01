@@ -20,8 +20,4 @@ class User < ApplicationRecord
       # user.skip_confirmation!
     end
   end
-
-  def update_all_product
-    UpdateAllProductPriceJob.perform_later(self)
-  end
 end
