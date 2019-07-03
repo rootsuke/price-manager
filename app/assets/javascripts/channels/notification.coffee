@@ -5,10 +5,11 @@ App.notification = App.cable.subscriptions.create "NotificationChannel",
   disconnected: ->
     # Called when the subscription has been terminated by the server
 
-  received: (msg) ->
+  received: (data) ->
     $('#update_all_btn').prop('disabled', false)
     $('#loading').remove()
-    alert msg
+    $('#products_area').html(data['result'])
+    alert "商品価格を更新しました"
 
   update_all: ->
     @perform 'update_all'
