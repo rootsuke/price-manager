@@ -45,12 +45,6 @@ class ProductsController < ApplicationController
     redirect_to user_path(current_user)
   end
 
-  def update_all
-    UpdatePriceWorker.perform_async(current_user.id)
-    flash[:success] = "価格情報を更新中です。しばらくお待ち下さい。"
-    redirect_to current_user
-  end
-
   private
 
     def product_params

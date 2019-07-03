@@ -6,7 +6,7 @@
   </div>
   <div class="col-md-8">
     <div id="update_all_products">
-      <%= link_to "すべての商品価格を更新する", update_all_products_path, method: :post, class: "btn btn-success" %>
+      <button class="btn btn-success" id="update_all_btn" data-behavior="update_all">"すべての商品価格を更新する"</button>
       <span>※この処理には数十秒〜数分かかる場合があります。</span>
     </div>
   </div>
@@ -23,8 +23,10 @@
       </div>
     </section>
   </div>
-  <div class="col-md-8">
-    <%= render @products %>
+  <div class="col-md-8" id="main">
+    <div id="products_area">
+      <%= render @products %>
+    </div>
     <%= will_paginate @products %>
   </div>
 </div>
