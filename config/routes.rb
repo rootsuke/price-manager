@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   root 'home#index'
   get "/help", to: "home#help"
@@ -9,4 +11,9 @@ Rails.application.routes.draw do
 
   # action cable
   mount ActionCable.server => '/cable'
+
+  # sidekiq dashboard
+  authenticate :user, lambda { |u| u.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
 end
