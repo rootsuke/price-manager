@@ -1,6 +1,9 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # action cable setting.
+  config.action_cable.allowed_request_origins = [/http:\/\/.*/]
+
   # mailer settings.
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
